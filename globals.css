@@ -7,6 +7,10 @@
     @apply bg-secondary;
   }
 
+  section {
+    @apply my-40 mx-auto w-3/4;
+  }
+
   li {
     font-size: 1rem;
     font-weight: 700;

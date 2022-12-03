@@ -1,11 +1,10 @@
-import Image from 'next/image';
-
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import Button from '../components/Button';
+import Image from './Image';
 
 const HeroSection: React.FC = () => {
   return (
-    <>
+    <header>
       <div className="bg-gradient-to-l from-[transparent] to-[#EE4D47]  w-max  pointer-events-none   ">
         <div className="absolute top-48 left-60 flex flex-col gap-16">
           <h1 className="text-white">
@@ -51,13 +50,13 @@ const HeroSection: React.FC = () => {
       </div>
 
       <Image
-        src="/truck.png"
+        src={'/truck.png'}
         width={'532'}
         height={'352'}
-        alt="heroBackground"
+        alt="Truck"
         className="z-10 relative -mt-2  "
       />
-    </>
+    </header>
   );
 };
 

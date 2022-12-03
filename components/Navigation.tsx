@@ -1,3 +1,4 @@
+import { Link } from 'react-scroll/modules';
 import Button from './Button';
 import Header from './Header';
 
@@ -25,6 +26,7 @@ const Navigation: React.FC = () => {
       id: 4,
     },
   ];
+
   return (
     <Header>
       {navItems?.map((item) => {
@@ -34,7 +36,9 @@ const Navigation: React.FC = () => {
             key={item.id}
             withBackground={item.name === 'contact' ? true : false}
           >
-            {item.name}
+            <Link to={'page1'} smooth={true}>
+              {item.name}
+            </Link>
           </Button>
         );
       })}

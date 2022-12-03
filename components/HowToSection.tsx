@@ -1,6 +1,10 @@
 import Image from './Image';
 
 const HowToSection = () => {
+  // const ref2 = React.forwardRef((props, ref) => {
+  //   return ref;
+  // });
+
   return (
     <section className="flex justify-between  items-center  ">
       <div className="flex  py-20  px-16 items-center">

@@ -1,3 +1,5 @@
+import Button from './Button';
+
 const Navigation = () => {
   return (
     <nav className="flex items-center justify-between px-44    absolute  w-full  ">
@@ -22,7 +24,7 @@ const Navigation = () => {
         <p>ABOUT</p>
         <p>HOW TO</p>
         <p>FAQS</p>
-        <p>CONTACT US</p>
+        <Button type={'button'}>Contact</Button>
       </div>
     </nav>
   );

@@ -4,19 +4,28 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   type: 'button' | 'submit' | 'reset';
+  withBackground?: boolean;
 };
 
-const Button = ({ children, className, type, ...rest }: Props) => {
+const Button = ({
+  children,
+  className,
+  type,
+  withBackground,
+  ...rest
+}: Props) => {
   return (
     <motion.button
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.8 }}
       transition={{ duration: 0.2, ease: 'easeInOut' }}
       type={type}
-      className={`${className} w-max items-center justify-center flex uppercase text-secondary bg-accent_primary p-5 rounded-md `}
+      className={`${className} w-max items-center justify-center flex uppercase text-secondary ${
+        withBackground ? 'bg-accent_primary' : ''
+      }  rounded-md `}
       {...rest}
     >
-      <p className="font-bold tracking-widest ">{children}</p>
+      <p className="font-bold tracking-widest py-5 px-6 ">{children}</p>
     </motion.button>
   );
 };

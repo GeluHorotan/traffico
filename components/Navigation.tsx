@@ -1,6 +1,4 @@
-type Props = {};
-
-const Navigation = (props: Props) => {
+const Navigation = () => {
   return (
     <nav className="flex items-center justify-between px-44    absolute  w-full  ">
       <div className="flex w-full items-center justify-start pt-16 gap-4 ">

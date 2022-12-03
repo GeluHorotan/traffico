@@ -1,3 +1,4 @@
+import Footer from '../Footer';
 import Navigation from '../Navigation';
 
 type Props = {
@@ -9,6 +10,7 @@ const Layout = ({ children }: Props) => {
     <>
       <Navigation></Navigation>
       <main>{children}</main>
+      <Footer></Footer>
     </>
   );
 };

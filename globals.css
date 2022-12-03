@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  body {
+    @apply bg-secondary;
+  }
   h1,
   h3 {
     @apply font-dmSerif;

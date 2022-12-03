@@ -1,13 +1,10 @@
 import Head from 'next/head';
-import { useRef } from 'react';
 
 import AboutSection from '../components/AboutSection';
 import HeroSection from '../components/HeroSection';
 import HowToSection from '../components/HowToSection';
 
 export default function Home() {
-  const ref = useRef(null);
-
   return (
     <div>
       <Head>

@@ -22,10 +22,12 @@ const Button = ({
       type={type}
       className={`${className} w-max items-center justify-center flex uppercase text-secondary ${
         withBackground ? 'bg-accent_primary' : ''
-      }  rounded-md `}
+      }  rounded-md py-5 px-6 `}
       {...rest}
     >
-      <p className="font-bold tracking-widest py-5 px-6 ">{children}</p>
+      <p className="font-bold tracking-widest flex gap-6 items-center justify-center ">
+        {children}
+      </p>
     </motion.button>
   );
 };

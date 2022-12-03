@@ -4,11 +4,11 @@
 
 @layer components {
   body {
-    @apply bg-secondary;
+    @apply bg-secondary text-accent_black;
   }
 
   section {
-    @apply my-40 mx-auto w-3/4;
+    @apply my-40 mx-auto w-[80%];
   }
 
   li {
@@ -27,10 +27,9 @@
   h5,
   h6,
   p {
-    font-family: 'Rubik', 'Sans-Serif';
-    letter-spacing: 0.05em;
-    line-height: 1rem;
+    @apply font-rubik tracking-wider;
   }
+
   h1 {
     font-size: 6.25rem;
     font-weight: 400;

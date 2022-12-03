@@ -12,6 +12,7 @@ module.exports = {
         accent_black: '#402B2B',
         disclosure: '#FFF7F5',
         darkBlue: '#0F264C',
+        accent_light: '#FCDDD4',
       },
       fontFamily: {
         rubik: ['Rubik', 'sans-serif'],

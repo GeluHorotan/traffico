@@ -8,7 +8,7 @@
   }
 
   section {
-    @apply my-40 mx-auto w-[80%];
+    @apply mt-40 mx-auto w-[80%];
   }
 
   li {

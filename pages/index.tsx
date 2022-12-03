@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 import AboutSection from '../components/AboutSection';
 import HeroSection from '../components/HeroSection';
+import HowToSection from '../components/HowToSection';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
 
       <HeroSection />
       <AboutSection />
+      <HowToSection />
     </div>
   );
 }

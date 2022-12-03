@@ -7,13 +7,13 @@ type Props = {
   withBackground?: boolean;
 };
 
-const Button = ({
+const Button: React.FC<Props> = ({
   children,
   className,
   type,
   withBackground,
   ...rest
-}: Props) => {
+}) => {
   return (
     <motion.button
       whileHover={{ scale: 1.05 }}

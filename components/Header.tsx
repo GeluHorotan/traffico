@@ -4,7 +4,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const Header = ({ children }: Props) => {
+const Header: React.FC<Props> = ({ children }) => {
   return (
     <nav className="flex items-center justify-between px-44    absolute  w-full gap-56  ">
       <div className="flex w-full items-center justify-start pt-16 gap-4 ">

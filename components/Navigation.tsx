@@ -6,7 +6,7 @@ type navItems = {
   id: number;
 }[];
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   const navItems: navItems = [
     {
       name: 'About',

@@ -13,6 +13,7 @@ module.exports = {
         disclosure: '#FFF7F5',
         darkBlue: '#0F264C',
         accent_light: '#FCDDD4',
+        accent_light_2: '#FDEDE8',
       },
       fontFamily: {
         rubik: ['Rubik', 'sans-serif'],

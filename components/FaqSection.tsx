@@ -1,6 +1,8 @@
+import { useFaq } from '../context/hooks/useFaq';
 import Image from './Image';
 
 const FaqSection = () => {
+  const { faq, load, loadMore } = useFaq();
   return (
     <section className="flex justify-between  items-center  relative w-full">
       <div className="bg-accent_light_2 w-[65rem] h-[93rem] absolute top-0 right-0 z-10 rounded-tl-[10rem]" />
@@ -21,6 +23,10 @@ const FaqSection = () => {
             />
           </aside>
         </div>
+        {faq?.slice(0, load).map((faq, index) => {
+          return <div key={index}>{faq.title}</div>;
+        })}
+        <button onClick={(e) => loadMore()}>LOAD MORE</button>
       </div>
     </section>
   );

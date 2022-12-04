@@ -1,41 +1,58 @@
-import { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
+import { fetchFaq } from '../../pages/api/faq';
 
 type Props = {
   children: React.ReactNode;
 };
 
 type Faq = {
-  question: string;
-  answer: string;
+  title: string;
+  Message: string;
 }[];
 
 type State = {
-  faq: string;
+  faq: Faq | undefined;
+  load: number;
   isLoading: boolean;
-  fetchFaq: () => Promise<void>;
+  setFaq: React.Dispatch<React.SetStateAction<Error | undefined>>;
+  setLoad: React.Dispatch<React.SetStateAction<number | undefined>>;
+  setIsLoading: React.Dispatch<React.SetStateAction<Error | undefined>>;
+  getFaq: () => Promise<void>;
+  loadMore: () => Promise<void>;
 };
 
 export const FaqContext = createContext<State>({} as State);
 
 export const FaqProvider = ({ children }: Props) => {
-  const [faq, setFaq] = useState('test');
-  const [isLoading, setIsLoading] = useState(false);
+  const [faq, setFaq] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [load, setLoad] = useState(10);
 
-  const fetchFaq = async () => {
+  const getFaq = async () => {
     try {
-      console.log('test');
-    } catch (error) {
-      console.log('test2');
-    }
+      const res = await fetchFaq();
+      setIsLoading(false);
+      setFaq(res);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    getFaq();
+  }, []);
+
+  const loadMore = () => {
+    setLoad((prevState) => prevState + 2);
   };
 
   return (
     <FaqContext.Provider
-      //   displayName={'Faq'}
+      displayName={'Faq'}
       value={{
         faq,
+        load,
+        loadMore,
         isLoading,
-        fetchFaq,
+        getFaq,
       }}
     >
       {children}

@@ -1,9 +1,12 @@
+import { useFaq } from '../context/hooks/useFaq';
 import Image from './Image';
 
 const HowToSection = () => {
   // const ref2 = React.forwardRef((props, ref) => {
   //   return ref;
   // });
+  const { faq, isLoading } = useFaq();
+  console.log(faq, isLoading);
 
   return (
     <section className="flex justify-between  items-center  ">

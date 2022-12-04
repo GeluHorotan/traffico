@@ -26,7 +26,7 @@ const FaqSection = () => {
         {faq?.slice(0, load).map((faq, index) => {
           return <div key={index}>{faq.title}</div>;
         })}
-        <button onClick={(e) => loadMore()}>LOAD MORE</button>
+        <button onClick={() => loadMore()}>LOAD MORE</button>
       </div>
     </section>
   );

@@ -19,7 +19,7 @@ const AboutSection = () => {
           </h4>
         </div>
       </div>
-      <div className="w-1/2  flex justify-end pb-24">
+      <aside className="w-1/2  flex justify-end pb-24">
         <Image
           src="/driver.png"
           width="576"
@@ -27,7 +27,7 @@ const AboutSection = () => {
           alt="Truck driver"
           className="pointer-events-none"
         />
-      </div>
+      </aside>
     </section>
   );
 };

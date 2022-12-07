@@ -1,23 +1,43 @@
+import { useState } from 'react';
 import { useFaq } from '../context/hooks/useFaq';
 import Disclosure from './Disclosure';
 import Image from './Image';
 
+type isOpen = {
+  status: boolean;
+  activeId: number;
+};
+
 const FaqSection = () => {
   const { faq, loadMore } = useFaq();
+  const [isOpen, setIsOpen] = useState<isOpen>({ status: false, activeId: -1 });
 
   const column1Questions = faq?.filter((_, index) => index % 2 === 0);
   const column2Questions = faq?.filter((_, index) => index % 2 === 1);
 
   const column1QuestionsList = column1Questions?.map((question, index) => (
-    <Disclosure title={question.title} key={index}>
+    <Disclosure
+      title={question.title}
+      key={index}
+      id={index}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+    >
       {question.Message}
     </Disclosure>
   ));
   const column2QuestionsList = column2Questions?.map((question, index) => (
-    <Disclosure title={question.title} key={index}>
+    <Disclosure
+      title={question.title}
+      key={index + 30}
+      id={index + 30}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+    >
       {question.Message}
     </Disclosure>
   ));
+  console.log(isOpen);
 
   return (
     <section className="flex justify-between  items-center  relative w-full">

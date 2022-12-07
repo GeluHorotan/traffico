@@ -47,6 +47,7 @@ export const FaqProvider = ({ children }: Props) => {
   };
 
   useEffect(() => {
+    // @ts-ignore: Unreachable code error
     const faq = JSON.parse(localStorage.getItem('faq'));
     if (faq) {
       setOriginalFaq(faq);
@@ -56,6 +57,7 @@ export const FaqProvider = ({ children }: Props) => {
   }, []);
 
   useEffect(() => {
+    // @ts-ignore: Unreachable code error
     const faq = JSON.parse(localStorage.getItem('faq'));
     setFaq(faq.slice(0, load));
   }, [load]);
@@ -71,7 +73,6 @@ export const FaqProvider = ({ children }: Props) => {
       displayName={'Faq'}
       // @ts-ignore: Unreachable code error
       value={{
-        originalFaq,
         faq,
         load,
         // error,

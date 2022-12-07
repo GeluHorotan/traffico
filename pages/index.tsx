@@ -15,9 +15,7 @@ export default function Home() {
       </Head>
 
       <HeroSection />
-
       <AboutSection />
-
       <HowToSection />
       <FaqSection />
     </div>

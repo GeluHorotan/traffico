@@ -11,10 +11,13 @@ type Faq = {
 }[];
 
 type State = {
+  originalFaq: Faq | undefined;
   faq: Faq | undefined;
   load: number;
   isLoading: boolean;
-
+  loadStatus: string;
+  setLoadStatus: React.Dispatch<React.SetStateAction<string | undefined>>;
+  setOriginalFaq: React.Dispatch<React.SetStateAction<Error | undefined>>;
   setFaq: React.Dispatch<React.SetStateAction<Error | undefined>>;
   // setError: React.Dispatch<React.SetStateAction<Error | undefined>>;
   setLoad: React.Dispatch<React.SetStateAction<number | undefined>>;
@@ -26,11 +29,13 @@ type State = {
 export const FaqContext = createContext<State>({} as State);
 
 export const FaqProvider = ({ children }: Props) => {
-  const [originalFaq, setOriginalFaq] = useState();
+  const [originalFaq, setOriginalFaq] = useState<any>();
   const [isLoading, setIsLoading] = useState(true);
   // const [error, setError] = useState();
   const [load, setLoad] = useState(10);
   const [faq, setFaq] = useState();
+  const [loadStatus, setLoadStatus] = useState('');
+  console.log(loadStatus);
 
   const getFaq = async () => {
     try {
@@ -45,6 +50,12 @@ export const FaqProvider = ({ children }: Props) => {
       return error;
     }
   };
+
+  useEffect(() => {
+    setLoadStatus(() =>
+      load === originalFaq?.length ? 'SHOW LESS' : 'LOAD MORE'
+    );
+  }, [load, originalFaq?.length]);
 
   useEffect(() => {
     // @ts-ignore: Unreachable code error
@@ -63,7 +74,11 @@ export const FaqProvider = ({ children }: Props) => {
   }, [load]);
 
   const loadMore = () => {
-    setLoad((prevState) => prevState + 2);
+    if (load === originalFaq?.length) {
+      setLoad((prevState) => prevState - 4);
+    } else {
+      setLoad((prevState) => prevState + 2);
+    }
 
     return load;
   };
@@ -76,6 +91,7 @@ export const FaqProvider = ({ children }: Props) => {
         faq,
         load,
         // error,
+        loadStatus,
 
         loadMore,
         isLoading,

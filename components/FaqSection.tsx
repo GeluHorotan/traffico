@@ -1,8 +1,24 @@
 import { useFaq } from '../context/hooks/useFaq';
+import Disclosure from './Disclosure';
 import Image from './Image';
 
 const FaqSection = () => {
-  const { faq, load, loadMore } = useFaq();
+  const { faq, loadMore } = useFaq();
+
+  const column1Questions = faq?.filter((_, index) => index % 2 === 0);
+  const column2Questions = faq?.filter((_, index) => index % 2 === 1);
+
+  const column1QuestionsList = column1Questions?.map((question, index) => (
+    <Disclosure title={question.title} key={index}>
+      {question.Message}
+    </Disclosure>
+  ));
+  const column2QuestionsList = column2Questions?.map((question, index) => (
+    <Disclosure title={question.title} key={index}>
+      {question.Message}
+    </Disclosure>
+  ));
+
   return (
     <section className="flex justify-between  items-center  relative w-full">
       <div className="bg-accent_light_2 w-[65rem] h-[93rem] absolute top-0 right-0 z-10 rounded-tl-[10rem]" />
@@ -23,10 +39,17 @@ const FaqSection = () => {
             />
           </aside>
         </div>
-        {faq?.slice(0, load).map((faq, index) => {
-          return <div key={index}>{faq.title}</div>;
-        })}
-        <button onClick={() => loadMore()}>LOAD MORE</button>
+        <div className="flex flex-col bg-red-400 p-8 items-center justify-center">
+          <div
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)' }}
+          >
+            <div className="flex flex-col">{column1QuestionsList}</div>
+            <div className="flex flex-col"> {column2QuestionsList}</div>
+          </div>
+          <button className="bg-yellow-400" onClick={() => loadMore()}>
+            LOAD MORE
+          </button>
+        </div>
       </div>
     </section>
   );

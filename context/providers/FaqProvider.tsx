@@ -26,16 +26,18 @@ type State = {
 export const FaqContext = createContext<State>({} as State);
 
 export const FaqProvider = ({ children }: Props) => {
-  const [faq, setFaq] = useState();
+  const [originalFaq, setOriginalFaq] = useState();
   const [isLoading, setIsLoading] = useState(true);
   // const [error, setError] = useState();
   const [load, setLoad] = useState(10);
+  const [faq, setFaq] = useState();
 
   const getFaq = async () => {
     try {
       const res = await fetchFaq();
+      localStorage.setItem('faq', JSON.stringify(res));
       setIsLoading(false);
-      setFaq(res);
+      setOriginalFaq(res);
       return res;
     } catch (error) {
       setIsLoading(false);
@@ -45,11 +47,22 @@ export const FaqProvider = ({ children }: Props) => {
   };
 
   useEffect(() => {
-    getFaq();
+    const faq = JSON.parse(localStorage.getItem('faq'));
+    if (faq) {
+      setOriginalFaq(faq);
+    } else {
+      // getFaq();
+    }
   }, []);
+
+  useEffect(() => {
+    const faq = JSON.parse(localStorage.getItem('faq'));
+    setFaq(faq.slice(0, load));
+  }, [load]);
 
   const loadMore = () => {
     setLoad((prevState) => prevState + 2);
+
     return load;
   };
 
@@ -58,6 +71,7 @@ export const FaqProvider = ({ children }: Props) => {
       displayName={'Faq'}
       // @ts-ignore: Unreachable code error
       value={{
+        originalFaq,
         faq,
         load,
         // error,

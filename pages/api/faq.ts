@@ -6,7 +6,7 @@ export const fetchFaq = async () => {
       'https://lxpi9qne2a.api.quickmocker.com/getReactFAQs'
     );
 
-    return res.data.response;
+    return await res.data.response;
   } catch (error) {
     return error;
   }

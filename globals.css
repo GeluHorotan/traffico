@@ -6,6 +6,9 @@
   body {
     @apply bg-secondary text-accent_black;
   }
+  body {
+    scroll-behavior: smooth;
+  }
 
   section {
     @apply mt-40 mx-auto w-[80%];

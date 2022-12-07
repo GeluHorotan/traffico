@@ -1,4 +1,4 @@
-import { Link } from 'react-scroll/modules';
+import Link from 'next/link';
 import Button from './Button';
 import Header from './Header';
 
@@ -36,9 +36,7 @@ const Navigation: React.FC = () => {
             key={item.id}
             withBackground={item.name === 'contact' ? true : false}
           >
-            <Link to={'page1'} smooth={true}>
-              {item.name}
-            </Link>
+            <Link href={'#page1'}>{item.name}</Link>
           </Button>
         );
       })}

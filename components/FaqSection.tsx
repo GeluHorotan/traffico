@@ -41,17 +41,17 @@ const FaqSection = () => {
   ));
 
   return (
-    <section className="flex justify-between  items-center  relative w-full ">
-      <div className="bg-accent_light_2 w-[65rem] h-[93rem] absolute top-0 right-0 z-10 rounded-tl-[10rem]" />
+    <section className="flex justify-between  items-center  relative w-full  ">
+      <div className="bg-accent_light_2 w-3/4 h-full absolute top-0 right-0 z-10 rounded-tl-[10rem] " />
       <div className="mx-auto w-[80%] z-20 gap-24 flex flex-col ">
-        <div className=" flex items-center justify-center">
-          <div className=" flex flex-col gap-11">
+        <div className=" flex items-center justify-between">
+          <div className=" flex flex-col gap-11 ">
             <h4 className="text-primary">FAQ</h4>
             <h2 className="font-dmSerif">
               Questions and Answers on Professional Traffic Permits:
             </h2>
           </div>
-          <aside className="w-full -translate-x-14">
+          <aside className=" w-full  mt-28">
             <Image
               src="/faqdriver.png"
               width="708"
@@ -66,11 +66,10 @@ const FaqSection = () => {
             className=" gap-5"
           >
             <div className="flex flex-col gap-3">{column1QuestionsList}</div>
-            <div className="flex flex-col gap-3">
-              {' '}
-              {column2QuestionsList}
+            <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-3">{column2QuestionsList}</div>
               <button
-                className=" w-full bg-accent_primary bg-opacity-20 rounded-xl drop-shadow-xl px-9 py-7 text-accent_primary flex items-center justify-center  "
+                className=" w-full bg-accent_primary bg-opacity-20 rounded-xl drop-shadow-xl px-9 py-7 text-accent_primary flex items-center justify-center mb-28  "
                 onClick={() => loadMore()}
               >
                 <h6 className="font-bold tracking-wider w-full  justify-between">

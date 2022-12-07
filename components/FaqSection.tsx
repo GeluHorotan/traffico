@@ -30,7 +30,8 @@ const FaqSection = () => {
     <Disclosure
       title={question.title}
       key={index + 30}
-      id={index + 30}
+      // @ts-ignore: Unreachable code error
+      id={index + column1Questions?.length}
       isOpen={isOpen}
       setIsOpen={setIsOpen}
     >

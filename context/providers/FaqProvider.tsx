@@ -42,6 +42,7 @@ export const FaqProvider = ({ children }: Props) => {
       localStorage.setItem('faq', JSON.stringify(res));
       setIsLoading(false);
       setOriginalFaq(res);
+
       return res;
     } catch (error) {
       setIsLoading(false);
@@ -58,19 +59,22 @@ export const FaqProvider = ({ children }: Props) => {
 
   useEffect(() => {
     // @ts-ignore: Unreachable code error
-    const faq = JSON.parse(localStorage.getItem('faq'));
-    if (faq) {
-      setOriginalFaq(faq);
-    } else {
-      // getFaq();
+    const localFaq = JSON.parse(localStorage.getItem('faq'));
+
+    if (localFaq) {
+      setOriginalFaq(localFaq);
+    } else if (localFaq === null) {
+      getFaq();
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     // @ts-ignore: Unreachable code error
-    const faq = JSON.parse(localStorage.getItem('faq'));
-    setFaq(faq?.slice(0, load));
-  }, [load]);
+    setFaq(() => originalFaq?.slice(0, load));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [load, originalFaq]);
 
   const loadMore = () => {
     if (load === originalFaq?.length) {

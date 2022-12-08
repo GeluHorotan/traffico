@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BeatLoader } from 'react-spinners';
 import { useFaq } from '../context/hooks/useFaq';
 import Disclosure from './Disclosure';
 import Image from './Image';
@@ -10,23 +11,25 @@ type isOpen = {
 };
 
 const FaqSection = () => {
-  const { faq, loadStatus, loadMore } = useFaq();
+  const { faq, loadStatus, loadMore, isLoading } = useFaq();
   const [isOpen, setIsOpen] = useState<isOpen>({ status: false, activeId: -1 });
 
   const column1Questions = faq?.filter((_, index) => index % 2 === 0);
   const column2Questions = faq?.filter((_, index) => index % 2 === 1);
 
-  const allQuestions = faq?.map((question, index) => (
-    <Disclosure
-      title={question.title}
-      key={index}
-      id={index}
-      isOpen={isOpen}
-      setIsOpen={setIsOpen}
-    >
-      {question.Message}
-    </Disclosure>
-  ));
+  const allQuestions =
+    faq &&
+    faq.map((question, index) => (
+      <Disclosure
+        title={question.title}
+        key={index}
+        id={index}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      >
+        {question.Message}
+      </Disclosure>
+    ));
 
   const column1QuestionsList = column1Questions?.map((question, index) => (
     <Disclosure
@@ -75,7 +78,9 @@ const FaqSection = () => {
             />
           </aside>
         </div>
+
         <div className="flex flex-col   items-center justify-center">
+          {isLoading && <BeatLoader color="#36d7b7" />}
           <div className=" grid grid-cols-2 gap-5 max-lg:hidden">
             <div className="flex flex-col gap-3">{column1QuestionsList}</div>
             <div className="flex flex-col gap-5">

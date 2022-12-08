@@ -1,6 +1,7 @@
 import { Link } from 'react-scroll';
 import Button from './Button';
 import useMediaQuery from './customHooks.tsx/useMediaQuery';
+import HamburgerMenu from './HamburgerMenu';
 import Header from './Header';
 
 type navItems = {
@@ -53,6 +54,7 @@ const Navigation: React.FC = () => {
           })}
         </Header>
       )}
+      {!matches && <HamburgerMenu iconSize={32} navItems={navItems} />}
     </>
   );
 };

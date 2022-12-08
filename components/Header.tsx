@@ -2,12 +2,17 @@ import Logo from './svgs/Logo';
 
 type Props = {
   children: React.ReactNode;
+  isFooter?: boolean;
 };
 
-const Header: React.FC<Props> = ({ children }) => {
+const Header: React.FC<Props> = ({ children, isFooter }) => {
   return (
-    <nav className="flex items-center justify-between px-44    absolute  w-full gap-56  ">
-      <div className="flex w-full items-center justify-start pt-16 gap-4 ">
+    <nav
+      className={`flex items-center justify-between    ${
+        isFooter ? '' : 'absolute px-44 '
+      }  w-full gap-56   `}
+    >
+      <div className="flex w-full items-center justify-center pt-16 gap-4 ">
         <Logo />
         <h3 className="text-white">TRAFICO.</h3>
       </div>

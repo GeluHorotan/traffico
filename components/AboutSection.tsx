@@ -2,7 +2,7 @@ import Image from './Image';
 
 const AboutSection = () => {
   return (
-    <section id="page1" className="flex justify-between scroll-smooth ">
+    <section id="about" className="flex justify-between scroll-smooth ">
       <div className="flex flex-col  w-1/2 gap-16 justify-end  ">
         <div className="flex flex-col gap-10">
           <h4 className="text-primary">ABOUT US</h4>

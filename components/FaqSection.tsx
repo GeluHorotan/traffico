@@ -41,7 +41,10 @@ const FaqSection = () => {
   ));
 
   return (
-    <section className="flex justify-between  items-center  relative w-full  ">
+    <section
+      className="flex justify-between  items-center  relative w-full  "
+      id="faq"
+    >
       <div className="bg-accent_light_2 w-3/4 h-full absolute top-0 right-0 z-10 rounded-tl-[10rem] " />
       <div className="mx-auto w-[80%] z-20 gap-24 flex flex-col ">
         <div className=" flex items-center justify-between">

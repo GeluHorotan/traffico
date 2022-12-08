@@ -5,7 +5,10 @@ import Image from './Image';
 const HeroSection: React.FC = () => {
   return (
     <header>
-      <div className="bg-gradient-to-l from-[transparent] to-[#EE4D47]  w-max     ">
+      <div
+        className="bg-gradient-to-l from-[transparent] to-[#EE4D47]  w-max     "
+        id="hero"
+      >
         <div className="absolute top-48 left-60 flex flex-col gap-16">
           <h1 className="text-white">
             Your awesome <br /> traffic permit <br /> consultant.

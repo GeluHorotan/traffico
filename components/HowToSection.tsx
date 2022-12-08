@@ -6,7 +6,7 @@ const HowToSection = () => {
   // });
 
   return (
-    <section className="flex justify-between  items-center  ">
+    <section className="flex justify-between  items-center  " id="howTo">
       <div className="flex  py-20 w-full  justify-center   items-center">
         <aside className="w-1/2">
           <Image

@@ -2,14 +2,17 @@ import { Link } from 'react-scroll';
 import Button from './Button';
 import Header from './Header';
 
-type navItems = {
+type footerItems = {
   name: string;
   id: number;
   ref: string;
 }[];
+type Props = {
+  className?: string;
+};
 
-const Navigation: React.FC = () => {
-  const navItems: navItems = [
+const FooterNav = ({ className }: Props) => {
+  const footerItems: footerItems = [
     {
       name: 'About',
       id: 1,
@@ -25,23 +28,13 @@ const Navigation: React.FC = () => {
       id: 3,
       ref: 'faq',
     },
-    {
-      name: 'contact',
-      id: 4,
-      ref: 'footer',
-    },
   ];
-
   return (
-    <Header>
-      {navItems?.map((item) => {
+    <Header isFooter>
+      {footerItems?.map((item) => {
         return (
-          <Button
-            type={'button'}
-            key={item.id}
-            withBackground={item.name === 'contact' ? true : false}
-          >
-            <Link smooth to={item.ref}>
+          <Button type={'button'} key={item.id}>
+            <Link to={item.ref} smooth>
               {item.name}
             </Link>
           </Button>
@@ -51,4 +44,4 @@ const Navigation: React.FC = () => {
   );
 };
 
-export default Navigation;
+export default FooterNav;

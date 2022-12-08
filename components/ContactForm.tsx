@@ -1,6 +1,9 @@
 // Form
 import { Field, Form, Formik } from 'formik';
+import { HiArrowNarrowRight } from 'react-icons/hi';
 import * as Yup from 'yup';
+import Button from './Button';
+import Input from './Input';
 
 type Props = {
   className?: string;
@@ -12,9 +15,7 @@ const FormSchema = Yup.object().shape({
     .max(10, `Please enter less than 10 characters!`)
     .required('This field is required!'),
   email: Yup.string()
-    .min(3, `Please enter more than 3 characters!`)
-    .max(10, `Please enter less than 10 characters!`)
-    .required('This field is required!'),
+  .required('This field is required!'),
 });
 
 const ContactForm = ({ className }: Props) => {
@@ -28,11 +29,19 @@ const ContactForm = ({ className }: Props) => {
       }}
       validationSchema={FormSchema}
       onSubmit={async ({ email, name }) => {
-        console.log('WORKING');
+        try {
+          console.log(email, name, 'shipped to backend');
+        } catch (error) {
+          console.log(error);
+        }
       }}
     >
       {({ values: { name, email }, errors, handleBlur, handleChange }) => (
-        <Form className={'flex flex-col gap-8 py-4 text-primary'}>
+        <Form
+          className={
+            'flex flex-col gap-8 px-20 py-14 py w-1/2 bg-white text-accent_black  rounded-xl -translate-y-1/4'
+          }
+        >
           <Field
             label="Name"
             id="name"
@@ -42,7 +51,8 @@ const ContactForm = ({ className }: Props) => {
             type="input"
             value={name}
             error={errors.name}
-            //  as={Input}
+            as={Input}
+            placeholder="John Doe"
           />
           <Field
             label="Email"
@@ -53,8 +63,17 @@ const ContactForm = ({ className }: Props) => {
             type="input"
             value={email}
             error={errors.email}
-            //  as={Input}
+            as={Input}
+            placeholder="Your email address"
           />
+          <Button type="submit" withBackground>
+            get started
+            <HiArrowNarrowRight
+              size={24}
+              className="font-black "
+              fontStyle={'font-black'}
+            />
+          </Button>
         </Form>
       )}
     </Formik>

@@ -14,8 +14,7 @@ const FormSchema = Yup.object().shape({
     .min(3, 'Please enter more than 3 characters!')
     .max(10, `Please enter less than 10 characters!`)
     .required('This field is required!'),
-  email: Yup.string()
-  .required('This field is required!'),
+  email: Yup.string().required('This field is required!'),
 });
 
 const ContactForm = ({ className }: Props) => {
@@ -39,7 +38,7 @@ const ContactForm = ({ className }: Props) => {
       {({ values: { name, email }, errors, handleBlur, handleChange }) => (
         <Form
           className={
-            'flex flex-col gap-8 px-20 py-14 py w-1/2 bg-white text-accent_black  rounded-xl -translate-y-1/4'
+            'flex flex-col gap-8 px-20 py-14 py w-1/2 bg-white text-accent_black  rounded-xl -translate-y-1/4 max-lg:w-full max-lg:px-4'
           }
         >
           <Field

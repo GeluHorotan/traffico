@@ -11,7 +11,7 @@
   }
 
   section {
-    @apply mt-40 mx-auto w-[80%];
+    @apply mt-40 mx-auto w-[80%] max-md:w-[95%];
   }
 
   li {

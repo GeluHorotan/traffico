@@ -2,8 +2,11 @@ import Image from './Image';
 
 const AboutSection = () => {
   return (
-    <section id="about" className="flex justify-between scroll-smooth ">
-      <div className="flex flex-col  w-1/2 gap-16 justify-end  ">
+    <section
+      id="about"
+      className="flex justify-between  max-lg:flex-col items-center   "
+    >
+      <div className="flex flex-col max-lg:w-full  w-1/2 gap-16 justify-end   ">
         <div className="flex flex-col gap-10">
           <h4 className="text-primary">ABOUT US</h4>
           <h6>
@@ -25,7 +28,7 @@ const AboutSection = () => {
           width="576"
           height="480"
           alt="Truck driver"
-          className="pointer-events-none"
+          className="pointer-events-none max-md-w-1/2"
         />
       </aside>
     </section>

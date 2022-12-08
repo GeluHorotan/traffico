@@ -22,10 +22,10 @@ const Button: React.FC<Props> = ({
       type={type}
       className={`${className} w-max items-center justify-center flex uppercase text-secondary ${
         withBackground ? 'bg-accent_primary' : ''
-      }  rounded-md py-5 px-6 `}
+      }  rounded-md py-5 px-6 max-lg:p-2`}
       {...rest}
     >
-      <p className="font-bold tracking-widest flex gap-6 items-center justify-center ">
+      <p className="font-bold tracking-widest flex gap-6 items-center justify-center max-lg:gap-2 max-lg:text-sm ">
         {children}
       </p>
     </motion.button>

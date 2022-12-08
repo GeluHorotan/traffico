@@ -26,7 +26,7 @@ const Disclosure = ({ children, title, id, isOpen, setIsOpen }: Props) => {
       initial={'initial'}
       animate={'show'}
       exit={{ y: 100 }}
-      className={`w-full bg-disclosure rounded-xl drop-shadow-xl  h-max-content min-h-0`}
+      className={`w-full bg-disclosure rounded-xl drop-shadow-xl  h-max-content`}
       onClick={() => {
         if (isOpen.status && isOpen.activeId === id) {
           setIsOpen({ status: false, activeId: id });
@@ -35,8 +35,8 @@ const Disclosure = ({ children, title, id, isOpen, setIsOpen }: Props) => {
         }
       }}
     >
-      <div className="w-full bg-white px-9 py-4 flex items-center justify-between  rounded-xl drop-shadow-md cursor-pointer h-24 relative z-20 ">
-        <h6 className="font-medium ">{title}</h6>
+      <div className="w-full bg-white px-9 py-6 h-max flex items-center justify-between  rounded-xl drop-shadow-md cursor-pointer relative z-20 ">
+        <h6 className="font-medium  ">{title}</h6>
         <PlusIcon
           isOpen={
             isOpen.status && isOpen.activeId === id ? isOpen.status : null

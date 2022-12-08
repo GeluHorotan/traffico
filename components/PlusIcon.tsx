@@ -16,7 +16,7 @@ const PlusIcon = ({ isOpen }: Props) => {
 
   return (
     <>
-      <div className={`w-5 h-0.5 bg-red-400 relative`}>
+      <div className={`w-5 px-2 h-0.5 bg-red-400 relative`}>
         <motion.div
           animate={controls}
           className={`

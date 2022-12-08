@@ -35,7 +35,6 @@ export const FaqProvider = ({ children }: Props) => {
   const [load, setLoad] = useState(10);
   const [faq, setFaq] = useState();
   const [loadStatus, setLoadStatus] = useState('');
-  console.log(loadStatus);
 
   const getFaq = async () => {
     try {
@@ -70,7 +69,7 @@ export const FaqProvider = ({ children }: Props) => {
   useEffect(() => {
     // @ts-ignore: Unreachable code error
     const faq = JSON.parse(localStorage.getItem('faq'));
-    setFaq(faq.slice(0, load));
+    setFaq(faq?.slice(0, load));
   }, [load]);
 
   const loadMore = () => {

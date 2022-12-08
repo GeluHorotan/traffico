@@ -11,26 +11,26 @@ const Footer = () => {
         width="429"
         height="209"
         alt="truck"
-        className="-translate-y-[68%] -translate-x-[20%] absolute left-0 z-10"
+        className="-translate-y-[68%] -translate-x-[20%] absolute left-0 z-10 max-lg:w-1/3"
       />
       <Image
         src="/smallCircle.png"
         width="186"
         height="93"
         alt="small circle"
-        className=" absolute -left-24 z-20"
+        className=" absolute -left-24 z-20 max-lg:w-[20%] max-lg:-left-12"
       />
       <Image
         src="/line.png"
         width="1033"
         height="466"
         alt="line"
-        className=" absolute -left-24 top-4 "
+        className=" absolute -left-24 top-4 max-lg:-left-12 max-lg:top-96 "
       />
-      <div className="w-[92%] bg-accent_blue rounded-tr-[7rem]  pb-36  ">
+      <div className="w-[92%] bg-accent_blue rounded-tr-[7rem]  pb-36 max-lg:w-full  ">
         <div className="flex flex-col items-center justify-between px-20 relative">
-          <div className="flex items-center justify-center gap-24 ">
-            <div className=" w-5/12  flex items-center justify-center gap-10  ">
+          <div className="flex items-center  justify-center gap-24 max-lg:flex-col-reverse  max-lg:gap-0 max-lg:mt-60">
+            <div className=" w-5/12  flex items-center justify-center gap-10 max-lg:w-full  ">
               <div className="bg-accent_primary w-2 h-40  rounded-l-xl" />
               <h5 className="text-white w-10/12 font-normal ">
                 We provide traffic management consultants so you get started

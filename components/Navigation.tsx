@@ -1,5 +1,6 @@
 import { Link } from 'react-scroll';
 import Button from './Button';
+import useMediaQuery from './customHooks.tsx/useMediaQuery';
 import Header from './Header';
 
 type navItems = {
@@ -9,6 +10,7 @@ type navItems = {
 }[];
 
 const Navigation: React.FC = () => {
+  const matches = useMediaQuery('(min-width:   1024px)');
   const navItems: navItems = [
     {
       name: 'About',
@@ -33,21 +35,25 @@ const Navigation: React.FC = () => {
   ];
 
   return (
-    <Header>
-      {navItems?.map((item) => {
-        return (
-          <Button
-            type={'button'}
-            key={item.id}
-            withBackground={item.name === 'contact' ? true : false}
-          >
-            <Link smooth to={item.ref}>
-              {item.name}
-            </Link>
-          </Button>
-        );
-      })}
-    </Header>
+    <>
+      {matches && (
+        <Header>
+          {navItems?.map((item) => {
+            return (
+              <Button
+                type={'button'}
+                key={item.id}
+                withBackground={item.name === 'contact' ? true : false}
+              >
+                <Link smooth to={item.ref}>
+                  {item.name}
+                </Link>
+              </Button>
+            );
+          })}
+        </Header>
+      )}
+    </>
   );
 };
 

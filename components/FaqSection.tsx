@@ -16,6 +16,18 @@ const FaqSection = () => {
   const column1Questions = faq?.filter((_, index) => index % 2 === 0);
   const column2Questions = faq?.filter((_, index) => index % 2 === 1);
 
+  const allQuestions = faq?.map((question, index) => (
+    <Disclosure
+      title={question.title}
+      key={index}
+      id={index}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+    >
+      {question.Message}
+    </Disclosure>
+  ));
+
   const column1QuestionsList = column1Questions?.map((question, index) => (
     <Disclosure
       title={question.title}
@@ -50,7 +62,7 @@ const FaqSection = () => {
         <div className=" flex items-center justify-between">
           <div className=" flex flex-col gap-11 ">
             <h4 className="text-primary">FAQ</h4>
-            <h2 className="font-dmSerif">
+            <h2 className="font-dmSerif max-lg:text-3xl">
               Questions and Answers on Professional Traffic Permits:
             </h2>
           </div>
@@ -64,10 +76,7 @@ const FaqSection = () => {
           </aside>
         </div>
         <div className="flex flex-col   items-center justify-center">
-          <div
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)' }}
-            className=" gap-5"
-          >
+          <div className=" grid grid-cols-2 gap-5 max-lg:hidden">
             <div className="flex flex-col gap-3">{column1QuestionsList}</div>
             <div className="flex flex-col gap-5">
               <div className="flex flex-col gap-3">{column2QuestionsList}</div>
@@ -82,6 +91,19 @@ const FaqSection = () => {
                 <PlusIcon isOpen={loadStatus === 'LOAD MORE' ? false : true} />
               </button>
             </div>
+          </div>
+          <div className="flex flex-col gap-5 lg:hidden">
+            <div className="flex flex-col gap-3">{allQuestions}</div>
+            <button
+              className=" w-full bg-accent_primary bg-opacity-20 rounded-xl drop-shadow-xl px-9 py-7 text-accent_primary flex items-center justify-center mb-28  "
+              onClick={() => loadMore()}
+            >
+              <h6 className="font-bold tracking-wider w-full  justify-between">
+                {loadStatus}
+              </h6>
+
+              <PlusIcon isOpen={loadStatus === 'LOAD MORE' ? false : true} />
+            </button>
           </div>
         </div>
       </div>

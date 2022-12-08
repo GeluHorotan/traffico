@@ -43,7 +43,7 @@ const Input = ({
             value
               ? 'drop-shadow-2xl shadow-accent_primary border-2 font-bold'
               : 'border-[1px]'
-          }  placeholder:text-accent_black placeholder:text-lg relative transition-all bg-white rounded-md border-accent_primary  duration-100 w-full ease-in-out  py-2 px-10
+          }  placeholder:text-accent_black placeholder:text-lg relative transition-all bg-white rounded-md border-accent_primary  duration-100 w-full ease-in-out  py-2 px-10 max-lg:px-2 
            outline-none text-lg`}
           value={value}
           onChange={onChangeHandler}

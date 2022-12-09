@@ -27,6 +27,7 @@ const Alert = ({ id, message, isSuccess }: Props) => {
   };
 
   const getTrajectory = () => {
+    // @ts-ignore: Unreachable code error
     setDirection(getDirection());
   };
 

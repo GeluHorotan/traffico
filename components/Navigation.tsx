@@ -1,6 +1,6 @@
 import { Link } from 'react-scroll';
 import Button from './Button';
-import useMediaQuery from './customHooks.tsx/useMediaQuery';
+import useMediaQuery from './customHooks/useMediaQuery';
 import HamburgerMenu from './HamburgerMenu';
 import Header from './Header';
 

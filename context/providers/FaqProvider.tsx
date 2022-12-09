@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { fetchFaq } from '../../pages/api/faq';
+import { useAlert } from '../hooks/useAlert';
 
 type Props = {
   children: React.ReactNode;
@@ -29,6 +30,7 @@ type State = {
 export const FaqContext = createContext<State>({} as State);
 
 export const FaqProvider = ({ children }: Props) => {
+  const { createAlert } = useAlert();
   const [originalFaq, setOriginalFaq] = useState<any>();
   const [isLoading, setIsLoading] = useState(true);
   // const [error, setError] = useState();
@@ -42,10 +44,11 @@ export const FaqProvider = ({ children }: Props) => {
       localStorage.setItem('faq', JSON.stringify(res));
       setIsLoading(false);
       setOriginalFaq(res);
-
+      createAlert('Questions loaded successfully!', true);
       return res;
     } catch (error) {
       setIsLoading(false);
+      createAlert('Something went wrong while loading questions!', false);
       // setError(error);
       return error;
     }

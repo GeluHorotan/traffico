@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { useInView } from 'react-intersection-observer';
 import Button from '../components/Button';
+
 import Image from './Image';
 import { bouncingTransition, slidingLeft } from './utility/animations';
 

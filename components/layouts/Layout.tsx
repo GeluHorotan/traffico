@@ -1,3 +1,4 @@
+import AlertWrapper from '../AlertWrapper';
 import Footer from '../Footer';
 import Navigation from '../Navigation';
 
@@ -11,6 +12,8 @@ const Layout: React.FC<Props> = ({ children }) => {
       <Navigation></Navigation>
       <main>{children}</main>
       <Footer></Footer>
+      {/* @ts-ignore: Unreachable code error */}
+      <AlertWrapper />
     </>
   );
 };

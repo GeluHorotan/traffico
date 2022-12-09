@@ -2,6 +2,7 @@
 import { Field, Form, Formik } from 'formik';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import * as Yup from 'yup';
+import { useAlert } from '../context/hooks/useAlert';
 import Button from './Button';
 import Input from './Input';
 
@@ -18,6 +19,7 @@ const FormSchema = Yup.object().shape({
 });
 
 const ContactForm = ({ className }: Props) => {
+  const { createAlert } = useAlert();
   return (
     <Formik
       validateOnBlur
@@ -28,11 +30,7 @@ const ContactForm = ({ className }: Props) => {
       }}
       validationSchema={FormSchema}
       onSubmit={async ({ email, name }) => {
-        try {
-          console.log(email, name, 'shipped to backend');
-        } catch (error) {
-          console.log(error);
-        }
+        createAlert('Unconfigured yet!', false);
       }}
     >
       {({ values: { name, email }, errors, handleBlur, handleChange }) => (

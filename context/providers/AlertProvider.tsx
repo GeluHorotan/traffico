@@ -44,8 +44,12 @@ export const AlertProvider = ({ children }: Props) => {
       id: uuid,
       isSuccess: isSuccess,
     };
+    console.log(newAlert);
     // @ts-ignore: Unreachable code error
-    setAlerts((prevState) => [...prevState, newAlert]);
+    setAlerts((prevState) => [
+      ...prevState,
+      { message: msg, id: uuid, isSuccess: isSuccess },
+    ]);
 
     setTimeout(() => {
       return deleteAlert(newAlert.id);

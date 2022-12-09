@@ -1,6 +1,23 @@
 import Image from './Image';
 
+// Animation
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { bouncingTransition, slidingRight } from './utility/animations';
+
 const AboutSection = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.25,
+  });
+  const driverControls = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      driverControls.start('animate');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView]);
+
   return (
     <section
       id="about"
@@ -22,7 +39,14 @@ const AboutSection = () => {
           </h4>
         </div>
       </div>
-      <aside className="w-1/2  flex justify-end pb-24">
+      <motion.aside
+        variants={slidingRight}
+        initial="initial"
+        animate={driverControls}
+        transition={bouncingTransition}
+        ref={ref}
+        className="w-1/2  flex justify-end pb-24"
+      >
         <Image
           src="/driver.png"
           width="576"
@@ -30,7 +54,7 @@ const AboutSection = () => {
           alt="Truck driver"
           className="pointer-events-none max-md-w-1/2"
         />
-      </aside>
+      </motion.aside>
     </section>
   );
 };

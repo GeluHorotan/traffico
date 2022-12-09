@@ -5,6 +5,23 @@ export const bouncingTransition = {
   duration: 0.5,
 };
 
+export const slidingLeft = {
+  initial: {
+    x: -300,
+  },
+  animate: {
+    x: 0,
+  },
+};
+export const slidingRight = {
+  initial: {
+    x: 300,
+  },
+  animate: {
+    x: 0,
+  },
+};
+
 export const bouncingAnswer = {
   initial: {
     y: -100,

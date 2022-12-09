@@ -1,14 +1,34 @@
 import Image from './Image';
 
+// Animation
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { bouncingTransition, slidingLeft } from './utility/animations';
+
 const HowToSection = () => {
-  // const ref2 = React.forwardRef((props, ref) => {
-  //   return ref;
-  // });
+  const { ref, inView } = useInView({
+    threshold: 0.25,
+  });
+  const womenControls = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      womenControls.start('animate');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView]);
 
   return (
     <section className="flex justify-between   items-center   " id="howTo">
       <div className="flex max-lg:flex-col py-20 max-lg:py-0 w-full  justify-center    items-center">
-        <aside className="w-1/2 max-lg:w-full">
+        <motion.aside
+          variants={slidingLeft}
+          initial="initial"
+          animate={womenControls}
+          transition={bouncingTransition}
+          ref={ref}
+          className="w-1/2 max-lg:w-full"
+        >
           <Image
             src="/youngLady.png"
             width="720"
@@ -16,7 +36,7 @@ const HowToSection = () => {
             alt="Young lady"
             className="pointer-events-none    lg:-translate-x-36    "
           />
-        </aside>
+        </motion.aside>
         <div className="flex w-2/5 flex-col gap-10 max-lg:w-full   ">
           <h4 className="text-primary">HOW TO APPLY</h4>
           <h6 className=" w-full">

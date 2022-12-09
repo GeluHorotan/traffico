@@ -3,16 +3,41 @@ import FooterNav from './FooterNav';
 import Image from './Image';
 import Socials from './Socials';
 
+// Animation
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { bouncingTransition, slidingLeft } from './utility/animations';
+
 const Footer = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.25,
+  });
+  const truckControls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      truckControls.start('animate');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView]);
   return (
     <section className="mt-[20rem]  w-full   pt-28  z-20 relative " id="footer">
-      <Image
-        src="/trekmobil.png"
-        width="429"
-        height="209"
-        alt="truck"
-        className="-translate-y-[68%] -translate-x-[20%] absolute left-0 z-10 max-lg:w-1/3"
-      />
+      <motion.div
+        variants={slidingLeft}
+        initial="initial"
+        animate={truckControls}
+        transition={bouncingTransition}
+        ref={ref}
+      >
+        <Image
+          src="/trekmobil.png"
+          width="429"
+          height="209"
+          alt="truck"
+          className="-translate-y-[68%] -translate-x-[20%] absolute left-0 z-10 max-lg:w-1/3"
+        />
+      </motion.div>
       <Image
         src="/smallCircle.png"
         width="186"

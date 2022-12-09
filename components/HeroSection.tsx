@@ -1,8 +1,24 @@
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
 import { HiArrowNarrowRight } from 'react-icons/hi';
+import { useInView } from 'react-intersection-observer';
 import Button from '../components/Button';
 import Image from './Image';
+import { bouncingTransition, slidingLeft } from './utility/animations';
 
 const HeroSection: React.FC = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.25,
+  });
+  const truckControls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      truckControls.start('animate');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView]);
+
   return (
     <header>
       <div className="bg-gradient-to-l from-transparent via-transparent to-[#EE4D47] relative       ">
@@ -19,6 +35,7 @@ const HeroSection: React.FC = () => {
             />
           </Button>
         </div>
+
         <Image
           src="/smallCircle.png"
           alt="smallCircle"
@@ -49,14 +66,21 @@ const HeroSection: React.FC = () => {
           className="z-10 absolute top-1/2 left-1/2  w-[25%] max-2xl:left-[65%]  "
         />
       </div>
-
-      <Image
-        src={'/truck.png'}
-        width={'532'}
-        height={'352'}
-        alt="Truck"
-        className="z-10 relative -mt-2  pointer-events-none max-lg:w-[40%] "
-      />
+      <motion.div
+        variants={slidingLeft}
+        initial="initial"
+        animate={truckControls}
+        transition={bouncingTransition}
+        ref={ref}
+      >
+        <Image
+          src={'/truck.png'}
+          width={'532'}
+          height={'352'}
+          alt="Truck"
+          className="z-10 relative -mt-2  pointer-events-none max-lg:w-[40%] "
+        />
+      </motion.div>
     </header>
   );
 };

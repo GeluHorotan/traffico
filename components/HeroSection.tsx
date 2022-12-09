@@ -1,4 +1,5 @@
 import { motion, useAnimation } from 'framer-motion';
+import Link from 'next/link';
 import { useEffect } from 'react';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { useInView } from 'react-intersection-observer';
@@ -22,17 +23,19 @@ const HeroSection: React.FC = () => {
   return (
     <header>
       <div className="bg-gradient-to-l from-transparent via-transparent to-[#EE4D47] relative       ">
-        <div className="absolute top-48 left-40 flex flex-col gap-16 max-md:top-6 max-md:left-20    max-lg:w-max max-lg:gap-2 ">
-          <h1 className="text-white max-2xl:text-4xl ">
+        <div className="absolute top-48 left-40 flex flex-col gap-16 max-md:top-6 max-md:left-20    max-lg:w-max max-lg:gap-2 max-sm:left-12 ">
+          <h1 className="text-white max-2xl:text-4xl max-sm:text-xl ">
             Your awesome <br /> traffic permit <br /> consultant.
           </h1>
           <Button type={'button'} withBackground>
-            get started
-            <HiArrowNarrowRight
-              size={24}
-              className="font-black "
-              fontStyle={'font-black'}
-            />
+            <Link href="/under-development" className="flex items-center gap-4">
+              get started
+              <HiArrowNarrowRight
+                size={24}
+                className="font-black "
+                fontStyle={'font-black'}
+              />
+            </Link>
           </Button>
         </div>
 

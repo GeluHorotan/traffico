@@ -71,7 +71,7 @@ const FaqSection = () => {
           </div>
           <aside className=" w-full  mt-28">
             <Image
-              src="/faqdriver.png"
+              src="/faqDriver.png"
               width="708"
               height="490"
               alt="Faq Driver"

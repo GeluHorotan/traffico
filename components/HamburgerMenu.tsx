@@ -49,9 +49,9 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
 
       {menuOpen && (
         <>
-          <nav className="navbar fixed  z-40 h-screen flex flex-col items-center justify-center px-4 py-6  space-y-1 sm:space-y-2 sm:px-6 sm:py-8 sm:flex-row bg-red-400 w-1/2">
+          <nav className="navbar fixed  z-50 h-screen flex flex-col items-center justify-center px-4 py-6  space-y-1 sm:space-y-2 sm:px-6 sm:py-8 sm:flex-row bg-red-400 w-1/2">
             <div className="flex flex-col gap-20">
-              <div className="flex gap-4 items-center justify-center">
+              <div className="flex gap-4 items-center justify-center flex-col">
                 <Logo />
                 <h4 className="text-white">TRAFFICO.</h4>
               </div>

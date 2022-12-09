@@ -68,7 +68,7 @@ const Footer = () => {
           <FooterNav />
         </div>
       </div>
-      <div className=" py-9 w-[70%] mx-auto flex items-center justify-between  ">
+      <div className=" py-9 w-[70%] mx-auto flex items-center justify-between max-lg:flex-col gap-4  ">
         <p>Copyright {new Date().getFullYear()}</p>
         <Socials size={32} color="white" />
       </div>

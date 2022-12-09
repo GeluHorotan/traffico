@@ -1,6 +1,5 @@
 import { Link } from 'react-scroll';
 import Button from './Button';
-import useMediaQuery from './customHooks.tsx/useMediaQuery';
 import Header from './Header';
 
 type footerItems = {
@@ -13,7 +12,6 @@ type Props = {
 };
 
 const FooterNav = ({ className }: Props) => {
-  const matches = useMediaQuery('(min-width: 768px)');
   const footerItems: footerItems = [
     {
       name: 'About',

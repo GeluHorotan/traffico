@@ -1,5 +1,6 @@
 import { AiFillInstagram, AiOutlineTwitter } from 'react-icons/ai';
 import { FaFacebookF } from 'react-icons/fa';
+import Button from './Button';
 
 type Props = {
   size?: number;
@@ -20,9 +21,13 @@ const Socials = ({ size, color }: Props) => {
   return (
     <div className="flex gap-10">
       {icons?.map((icon, index) => (
-        <div key={index} className="bg-primary rounded-full p-2 ">
+        <Button
+          type="button"
+          key={index}
+          className="bg-primary rounded-full py-2 px-2 "
+        >
           {icon.icon}
-        </div>
+        </Button>
       ))}
     </div>
   );

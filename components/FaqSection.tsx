@@ -80,11 +80,30 @@ const FaqSection = () => {
         </div>
 
         <div className="flex flex-col   items-center justify-center">
-          {isLoading && <BeatLoader color="#36d7b7" />}
+          {!isLoading && <BeatLoader color="#36d7b7" />}
           <div className=" grid grid-cols-2 gap-5 max-lg:hidden">
             <div className="flex flex-col gap-3">{column1QuestionsList}</div>
             <div className="flex flex-col gap-5">
               <div className="flex flex-col gap-3">{column2QuestionsList}</div>
+              {column1QuestionsList && column2QuestionsList && (
+                <button
+                  className=" w-full bg-accent_primary bg-opacity-20 rounded-xl drop-shadow-xl px-9 py-7 text-accent_primary flex items-center justify-center mb-28  "
+                  onClick={() => loadMore()}
+                >
+                  <h6 className="font-bold tracking-wider w-full  justify-between">
+                    {loadStatus}
+                  </h6>
+
+                  <PlusIcon
+                    isOpen={loadStatus === 'LOAD MORE' ? false : true}
+                  />
+                </button>
+              )}
+            </div>
+          </div>
+          <div className="flex flex-col gap-5 lg:hidden">
+            <div className="flex flex-col gap-3">{allQuestions}</div>
+            {allQuestions && (
               <button
                 className=" w-full bg-accent_primary bg-opacity-20 rounded-xl drop-shadow-xl px-9 py-7 text-accent_primary flex items-center justify-center mb-28  "
                 onClick={() => loadMore()}
@@ -95,20 +114,7 @@ const FaqSection = () => {
 
                 <PlusIcon isOpen={loadStatus === 'LOAD MORE' ? false : true} />
               </button>
-            </div>
-          </div>
-          <div className="flex flex-col gap-5 lg:hidden">
-            <div className="flex flex-col gap-3">{allQuestions}</div>
-            <button
-              className=" w-full bg-accent_primary bg-opacity-20 rounded-xl drop-shadow-xl px-9 py-7 text-accent_primary flex items-center justify-center mb-28  "
-              onClick={() => loadMore()}
-            >
-              <h6 className="font-bold tracking-wider w-full  justify-between">
-                {loadStatus}
-              </h6>
-
-              <PlusIcon isOpen={loadStatus === 'LOAD MORE' ? false : true} />
-            </button>
+            )}
           </div>
         </div>
       </div>

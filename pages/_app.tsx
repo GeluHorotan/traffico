@@ -9,8 +9,9 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   // Check if the current page is the 404 page
-  const is404Page = router.pathname === '/[...slug]';
-  console.log(router.pathname);
+  const is404Page =
+    router.pathname === '/[...slug]' ||
+    router.pathname === '/under-development';
 
   if (is404Page) {
     return (

@@ -65,7 +65,7 @@ const Footer = () => {
             <ContactForm></ContactForm>
           </div>
 
-          <FooterNav></FooterNav>
+          <FooterNav />
         </div>
       </div>
       <div className=" py-9 w-[70%] mx-auto flex items-center justify-between  ">

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BeatLoader } from 'react-spinners';
+
 import { useFaq } from '../context/hooks/useFaq';
 import Disclosure from './Disclosure';
 import Image from './Image';
@@ -80,7 +80,6 @@ const FaqSection = () => {
         </div>
 
         <div className="flex flex-col   items-center justify-center">
-          {!isLoading && <BeatLoader color="#36d7b7" />}
           <div className=" grid grid-cols-2 gap-5 max-lg:hidden">
             <div className="flex flex-col gap-3">{column1QuestionsList}</div>
             <div className="flex flex-col gap-5">

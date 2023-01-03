@@ -68,7 +68,9 @@ const Alert = ({ id, message, isSuccess }: Props) => {
             <p className="text-base text-primary w-full ">{message}</p>
           </div>
           <div className="h-full  flex items-start ">
-            <MdClose size={16} className=" text-primary" />
+            <button onClick={() => deleteAlert(id)}>
+              <MdClose size={16} className=" text-primary" />
+            </button>
           </div>
         </div>
       </motion.div>

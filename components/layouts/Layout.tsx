@@ -8,13 +8,13 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <>
-      <Navigation></Navigation>
+    <div className="overflow-x-hidden">
+      <Navigation />
       <main>{children}</main>
-      <Footer></Footer>
+      <Footer />
       {/* @ts-ignore: Unreachable code error */}
       <AlertWrapper />
-    </>
+    </div>
   );
 };
 

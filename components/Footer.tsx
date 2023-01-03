@@ -22,7 +22,10 @@ const Footer = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
   return (
-    <section className="mt-[20rem]  w-full   pt-28  z-20 relative " id="footer">
+    <section
+      className="mt-[20rem]  w-full    pt-28  z-40  relative "
+      id="footer"
+    >
       <motion.div
         variants={slidingLeft}
         initial="initial"
@@ -35,7 +38,7 @@ const Footer = () => {
           width="429"
           height="209"
           alt="truck"
-          className="-translate-y-[68%] -translate-x-[20%] absolute left-0 z-10 max-lg:w-1/3"
+          className="-translate-y-[68%] -translate-x-[20%] absolute left-0 z-60 max-lg:w-1/3"
         />
       </motion.div>
       <Image

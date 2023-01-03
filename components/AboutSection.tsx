@@ -21,7 +21,7 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="flex justify-between  max-lg:flex-col items-center   "
+      className="flex justify-between overflow-x-hidden max-lg:flex-col items-center   "
     >
       <div className="flex flex-col max-lg:w-full  w-1/2 gap-16 justify-end   ">
         <div className="flex flex-col gap-10">
